@@ -61,10 +61,101 @@ struct Home : View {
                         Image(systemName: "pencil.slash")
                             .font(.title)
                     }
-                })
-        }
-    }
-}
+                    
+                                       // Menu For InkType And Color....
+                                       
+                                       Menu {
+                                           
+                                           // Color Picker...
+                                           
+                                           Button(action: {
+                                               
+                                               colorPicker.toggle()
+                                               
+                                           }) {
+                                               
+                                               Label {
+                                                   
+                                                   Text("Color")
+                                                   
+                                               } icon: {
+                                                   
+                                                   Image(systemName: "eyedropper.full")
+                                               }
+                                           }
+                                           
+                                           Button(action: {
+                                               
+                                               // changing type....
+                                               
+                                               isDraw = true
+                                               type = .pencil
+                                               
+                                           }) {
+                                               
+                                               Label {
+                                                   
+                                                   Text("Pencil")
+                                                   
+                                               } icon: {
+                                                   
+                                                   Image(systemName: "pencil")
+                                               }
+                                               
+                                           }
+                                           
+                                           Button(action: {
+                                               
+                                               isDraw = true
+                                               type = .pen
+                                               
+                                           }) {
+                                               
+                                               Label {
+                                                   
+                                                   Text("Pen")
+                                                   
+                                               } icon: {
+                                                   
+                                                   Image(systemName: "pencil.tip")
+                                               }
+                                               
+                                           }
+                                           
+                                           Button(action: {
+                                               
+                                               isDraw = true
+                                               type = .marker
+                                               
+                                           }) {
+                                               
+                                               Label {
+                                                   
+                                                   Text("Marker")
+                                                   
+                                               } icon: {
+                                                   
+                                                   Image(systemName: "highlighter")
+                                               }
+                                               
+                                           }
+                                           
+                                       } label: {
+                                           
+                                           Image("menu")
+                                               .resizable()
+                                               .frame(width: 22, height: 22)
+                                       }
+
+                                   })
+                                   .sheet(isPresented: $colorPicker) {
+                                       
+                                       ColorPicker("Pick Color", selection: $color)
+                                           .padding()
+                                   }
+                           }
+                       }
+    
 struct DrawingView : UIViewRepresentable {
     
     // To capture drawing for saving into albums
