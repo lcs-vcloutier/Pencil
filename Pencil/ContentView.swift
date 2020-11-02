@@ -36,7 +36,7 @@ struct Home : View {
         NavigationView{
             
             // Drawing View
-            DrawingView(canvas: $canvas)
+            DrawingView(canvas: $canvas, isDraw: $isDraw)
                 .navigationTitle("Drawing")
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: {
@@ -52,9 +52,9 @@ struct Home : View {
                     
                     Button(action: {
                         
-                        // erase tool....
+                        // Erase tool
                         
-                        isDraw = false
+                        isDraw.toggle()
                         
                     }) {
                         
