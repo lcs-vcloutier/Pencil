@@ -174,7 +174,12 @@ struct DrawingView : UIViewRepresentable {
     @Binding var isDraw : Bool
     @Binding var type : PKInkingTool.InkType
     @Binding var color : Color
-    let ink = PKInkingTool(.pencil, color: .black)
+    // updating inkType....
+       
+       var ink : PKInkingTool{
+           
+           PKInkingTool(type, color: UIColor(color))
+       }
     let eraser = PKEraserTool(.bitmap)
     
     func makeUIView(context: Context) -> PKCanvasView{
