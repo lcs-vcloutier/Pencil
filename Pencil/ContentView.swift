@@ -40,3 +40,17 @@ struct Home : View {
         }
     }
 }
+struct DrawingView : UIViewRepresentable {
+    
+    
+    
+    func makeUIView(context: Context) -> PKCanvasView{
+        
+    
+    }
+    
+    func updateUIView(_ uiView: PKCanvasView, context: Context) {
+        
+       
+    }
+}
