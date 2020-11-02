@@ -6,16 +6,37 @@
 //
 
 import SwiftUI
+import PencilKit
+
 
 struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
-            .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+struct Home : View {
+    
+    @State var canvas = PKCanvasView()
+    @State var isDraw = true
+    @State var color : Color = .black
+    @State var type : PKInkingTool.InkType = .pencil
+    @State var colorPicker = false
+    
+    // default is pen....
+    
+    var body: some View{
+        
+        NavigationView{
+            
+            // Drawing View....
+
+        }
     }
 }
