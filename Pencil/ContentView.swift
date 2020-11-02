@@ -156,12 +156,24 @@ struct Home : View {
                            }
                        }
     
+    func SaveImage(){
+        
+        // getting image from canvas....
+        
+        let image = canvas.drawing.image(from: canvas.drawing.bounds, scale: 1)
+        
+        // saving to albums....
+        
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
+}
 struct DrawingView : UIViewRepresentable {
     
     // To capture drawing for saving into albums
     @Binding var canvas : PKCanvasView
     @Binding var isDraw : Bool
-    
+    @Binding var type : PKInkingTool.InkType
+    @Binding var color : Color
     let ink = PKInkingTool(.pencil, color: .black)
     let eraser = PKEraserTool(.bitmap)
     
