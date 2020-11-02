@@ -41,7 +41,7 @@ struct Home : View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationBarItems(leading: Button(action: {
                     
-                    // saving Image...
+                    // saving Image
                     
                     
                 }, label: {
@@ -61,87 +61,52 @@ struct Home : View {
                         Image(systemName: "pencil.slash")
                             .font(.title)
                     }
-                    
-                    // Menu For InkType And Color....
-                    
+                    // Menu For InkType And Color
                     Menu {
-                        
                         // Color Picker
                         Button(action: {
-                            
                             colorPicker.toggle()
-                            
                         }) {
-                            
                             Label {
-                                
                                 Text("Color")
-                                
                             } icon: {
-                                
                                 Image(systemName: "eyedropper.full")
                             }
                         }
-                        
                         Button(action: {
-                            
-                            // changing type....
-                            
+                            // changing type of drawing utensil
                             isDraw = true
                             type = .pencil
-                            
                         }) {
-                            
                             Label {
-                                
                                 Text("Pencil")
-                                
                             } icon: {
-                                
                                 Image(systemName: "pencil")
                             }
-                            
                         }
-                        
                         Button(action: {
-                            
                             isDraw = true
                             type = .pen
-                            
                         }) {
-                            
                             Label {
-                                
                                 Text("Pen")
-                                
                             } icon: {
-                                
                                 Image(systemName: "pencil.tip")
                             }
-                            
                         }
-                        
                         Button(action: {
-                            
                             isDraw = true
                             type = .marker
-                            
                         }) {
-                            
                             Label {
-                                
                                 Text("Marker")
-                                
                             } icon: {
-                                
                                 Image(systemName: "highlighter")
                             }
-                            
                         }
                         
                     } label: {
-                        
-                        Image(systemName: "pencil.slash")
+                        Image(systemName: "pencil.and.outline")
                             .resizable()
                             .frame(width: 22, height: 22)
                     }
@@ -157,11 +122,11 @@ struct Home : View {
     
     func SaveImage(){
         
-        // getting image from canvas....
+        // getting image from canvas
         
         let image = canvas.drawing.image(from: canvas.drawing.bounds, scale: 1)
         
-        // saving to albums....
+        // saving to albums
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
     }
@@ -173,7 +138,7 @@ struct DrawingView : UIViewRepresentable {
     @Binding var isDraw : Bool
     @Binding var type : PKInkingTool.InkType
     @Binding var color : Color
-    // updating inkType....
+    // updating inkType
     
     var ink : PKInkingTool{
         
