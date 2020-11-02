@@ -70,19 +70,21 @@ struct DrawingView : UIViewRepresentable {
     // To capture drawing for saving into albums
     @Binding var canvas : PKCanvasView
     @Binding var isDraw : Bool
-        
+    
     let ink = PKInkingTool(.pencil, color: .black)
     let eraser = PKEraserTool(.bitmap)
-   
+    
     func makeUIView(context: Context) -> PKCanvasView{
         
         canvas.drawingPolicy = .anyInput
+        canvas.tool = isDraw ? ink : eraser
         
         return canvas
     }
     
     func updateUIView(_ uiView: PKCanvasView, context: Context) {
         
-        
+        // updating tool when ever main view updates
+        uiView.tool = isDraw ? ink : eraser
     }
 }
