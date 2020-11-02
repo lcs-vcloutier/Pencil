@@ -29,28 +29,31 @@ struct Home : View {
     @State var type : PKInkingTool.InkType = .pencil
     @State var colorPicker = false
     
-    // default is pen....
-    
+    // Default is pen
+     
     var body: some View{
         
         NavigationView{
             
-            // Drawing View....
-
+            // Drawing View
+            DrawingView(canvas: $canvas)
         }
     }
 }
 struct DrawingView : UIViewRepresentable {
     
-    
+    // To capture drawing for saving into albums
+    @Binding var canvas : PKCanvasView
     
     func makeUIView(context: Context) -> PKCanvasView{
         
-    
+        canvas.drawingPolicy = .anyInput
+        
+        return canvas
     }
     
     func updateUIView(_ uiView: PKCanvasView, context: Context) {
         
-       
+        
     }
 }
