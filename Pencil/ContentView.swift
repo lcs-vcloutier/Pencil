@@ -17,7 +17,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Home()
     }
 }
 
@@ -37,6 +37,8 @@ struct Home : View {
             
             // Drawing View
             DrawingView(canvas: $canvas)
+                .navigationTitle("Drawing")
+                .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
